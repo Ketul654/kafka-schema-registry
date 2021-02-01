@@ -1,0 +1,45 @@
+{
+    "type" : "record",
+    "namespace" : "com.ketul.kafka.avro.schema",
+    "name" : "EmployeeV2",
+    "doc" : "This is Avro schema for Employee",
+    "fields" : [
+        {
+            "name": "employee_id",
+            "type": "string",
+            "doc": "Employee Id"
+        },
+        {
+            "name": "fist_name",
+            "type": "string",
+            "doc": "First name of the employee"
+        },
+        {
+            "name": "last_name",
+            "type": "string",
+            "doc": "Last name of the employee"
+        },
+        {
+            "name": "age",
+            "type": "int",
+            "doc": "Age of the employee"
+        },
+        {
+            "name": "salary",
+            "type": "float",
+            "doc": "Salary"
+        },
+        {
+            "name": "is_permanent",
+            "type": "boolean",
+            "default": true,
+            "doc": "Is employee permanent ?"
+        },
+        {
+            "name": "email_id",
+            "type": "string",
+            "default" : "abc@xyz.com",
+            "doc": "Employee email id"
+        }
+    ]
+}
