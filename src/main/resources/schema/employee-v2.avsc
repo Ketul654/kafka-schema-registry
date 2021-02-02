@@ -1,7 +1,7 @@
 {
     "type" : "record",
-    "namespace" : "com.ketul.kafka.avro.schema",
-    "name" : "EmployeeV2",
+    "namespace" : "com.ketul.kafka.avro.schema.v2",
+    "name" : "Employee",
     "doc" : "This is Avro schema for Employee",
     "fields" : [
         {

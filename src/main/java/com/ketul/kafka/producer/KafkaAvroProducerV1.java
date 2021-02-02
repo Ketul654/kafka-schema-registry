@@ -1,6 +1,6 @@
 package com.ketul.kafka.producer;
 
-import com.ketul.kafka.avro.schema.EmployeeV1;
+import com.ketul.kafka.avro.schema.v1.Employee;
 import com.ketul.kafka.utils.KafkaConstants;
 import io.confluent.kafka.serializers.KafkaAvroSerializer;
 import org.apache.kafka.clients.producer.KafkaProducer;
@@ -24,15 +24,15 @@ public class KafkaAvroProducerV1 {
         properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class.getName());
         properties.put("schema.registry.url", "http://127.0.0.1:8081");
 
-        KafkaProducer<String, EmployeeV1> kafkaProducer = new KafkaProducer(properties);
+        KafkaProducer<String, Employee> kafkaProducer = new KafkaProducer(properties);
 
-        EmployeeV1 employeeV1 = EmployeeV1.newBuilder()
+        Employee employeeV1 = Employee.newBuilder()
                 .setEmployeeId("emp-1")
                 .setFistName("Vipul")
                 .setLastName("Patel")
                 .setAge(30)
                 .setSalary(100000f)
-                .setIsPermanent(true)
+                .setIsPermanent(false)
                 .setPhoneNumber("123-456-789").build();
         try {
             ProducerRecord record = new ProducerRecord(KafkaConstants.TOPIC_NAME, employeeV1.getEmployeeId(), employeeV1);

@@ -3,7 +3,7 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package com.ketul.kafka.avro.schema;
+package com.ketul.kafka.avro.schema.v2;
 
 import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
@@ -14,24 +14,24 @@ import org.apache.avro.message.SchemaStore;
 
 /** This is Avro schema for Employee */
 @org.apache.avro.specific.AvroGenerated
-public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 2604692916487694246L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"EmployeeV1\",\"namespace\":\"com.ketul.kafka.avro.schema\",\"doc\":\"This is Avro schema for Employee\",\"fields\":[{\"name\":\"employee_id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Employee Id\"},{\"name\":\"fist_name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"First name of the employee\"},{\"name\":\"last_name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Last name of the employee\"},{\"name\":\"age\",\"type\":\"int\",\"doc\":\"Age of the employee\"},{\"name\":\"salary\",\"type\":\"float\",\"doc\":\"Salary\"},{\"name\":\"is_permanent\",\"type\":\"boolean\",\"doc\":\"Is employee permanent ?\",\"default\":true},{\"name\":\"phone_number\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Employee phone number\"}]}");
+public class Employee extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
+  private static final long serialVersionUID = -8020378300349366388L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Employee\",\"namespace\":\"com.ketul.kafka.avro.schema.v2\",\"doc\":\"This is Avro schema for Employee\",\"fields\":[{\"name\":\"employee_id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Employee Id\"},{\"name\":\"fist_name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"First name of the employee\"},{\"name\":\"last_name\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Last name of the employee\"},{\"name\":\"age\",\"type\":\"int\",\"doc\":\"Age of the employee\"},{\"name\":\"salary\",\"type\":\"float\",\"doc\":\"Salary\"},{\"name\":\"is_permanent\",\"type\":\"boolean\",\"doc\":\"Is employee permanent ?\",\"default\":true},{\"name\":\"email_id\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Employee email id\",\"default\":\"abc@xyz.com\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
 
-  private static final BinaryMessageEncoder<EmployeeV1> ENCODER =
-      new BinaryMessageEncoder<EmployeeV1>(MODEL$, SCHEMA$);
+  private static final BinaryMessageEncoder<Employee> ENCODER =
+      new BinaryMessageEncoder<Employee>(MODEL$, SCHEMA$);
 
-  private static final BinaryMessageDecoder<EmployeeV1> DECODER =
-      new BinaryMessageDecoder<EmployeeV1>(MODEL$, SCHEMA$);
+  private static final BinaryMessageDecoder<Employee> DECODER =
+      new BinaryMessageDecoder<Employee>(MODEL$, SCHEMA$);
 
   /**
    * Return the BinaryMessageEncoder instance used by this class.
    * @return the message encoder used by this class
    */
-  public static BinaryMessageEncoder<EmployeeV1> getEncoder() {
+  public static BinaryMessageEncoder<Employee> getEncoder() {
     return ENCODER;
   }
 
@@ -39,7 +39,7 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
    * Return the BinaryMessageDecoder instance used by this class.
    * @return the message decoder used by this class
    */
-  public static BinaryMessageDecoder<EmployeeV1> getDecoder() {
+  public static BinaryMessageDecoder<Employee> getDecoder() {
     return DECODER;
   }
 
@@ -48,12 +48,12 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
    * @param resolver a {@link SchemaStore} used to find schemas by fingerprint
    * @return a BinaryMessageDecoder instance for this class backed by the given SchemaStore
    */
-  public static BinaryMessageDecoder<EmployeeV1> createDecoder(SchemaStore resolver) {
-    return new BinaryMessageDecoder<EmployeeV1>(MODEL$, SCHEMA$, resolver);
+  public static BinaryMessageDecoder<Employee> createDecoder(SchemaStore resolver) {
+    return new BinaryMessageDecoder<Employee>(MODEL$, SCHEMA$, resolver);
   }
 
   /**
-   * Serializes this EmployeeV1 to a ByteBuffer.
+   * Serializes this Employee to a ByteBuffer.
    * @return a buffer holding the serialized data for this instance
    * @throws java.io.IOException if this instance could not be serialized
    */
@@ -62,12 +62,12 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
   }
 
   /**
-   * Deserializes a EmployeeV1 from a ByteBuffer.
+   * Deserializes a Employee from a ByteBuffer.
    * @param b a byte buffer holding serialized data for an instance of this class
-   * @return a EmployeeV1 instance decoded from the given buffer
+   * @return a Employee instance decoded from the given buffer
    * @throws java.io.IOException if the given bytes could not be deserialized into an instance of this class
    */
-  public static EmployeeV1 fromByteBuffer(
+  public static Employee fromByteBuffer(
       java.nio.ByteBuffer b) throws java.io.IOException {
     return DECODER.decode(b);
   }
@@ -84,15 +84,15 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
    private float salary;
   /** Is employee permanent ? */
    private boolean is_permanent;
-  /** Employee phone number */
-   private java.lang.String phone_number;
+  /** Employee email id */
+   private java.lang.String email_id;
 
   /**
    * Default constructor.  Note that this does not initialize fields
    * to their default values from the schema.  If that is desired then
    * one should use <code>newBuilder()</code>.
    */
-  public EmployeeV1() {}
+  public Employee() {}
 
   /**
    * All-args constructor.
@@ -102,16 +102,16 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
    * @param age Age of the employee
    * @param salary Salary
    * @param is_permanent Is employee permanent ?
-   * @param phone_number Employee phone number
+   * @param email_id Employee email id
    */
-  public EmployeeV1(java.lang.String employee_id, java.lang.String fist_name, java.lang.String last_name, java.lang.Integer age, java.lang.Float salary, java.lang.Boolean is_permanent, java.lang.String phone_number) {
+  public Employee(java.lang.String employee_id, java.lang.String fist_name, java.lang.String last_name, java.lang.Integer age, java.lang.Float salary, java.lang.Boolean is_permanent, java.lang.String email_id) {
     this.employee_id = employee_id;
     this.fist_name = fist_name;
     this.last_name = last_name;
     this.age = age;
     this.salary = salary;
     this.is_permanent = is_permanent;
-    this.phone_number = phone_number;
+    this.email_id = email_id;
   }
 
   public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
@@ -125,7 +125,7 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
     case 3: return age;
     case 4: return salary;
     case 5: return is_permanent;
-    case 6: return phone_number;
+    case 6: return email_id;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -140,7 +140,7 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
     case 3: age = (java.lang.Integer)value$; break;
     case 4: salary = (java.lang.Float)value$; break;
     case 5: is_permanent = (java.lang.Boolean)value$; break;
-    case 6: phone_number = value$ != null ? value$.toString() : null; break;
+    case 6: email_id = value$ != null ? value$.toString() : null; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -206,55 +206,55 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
 
 
   /**
-   * Gets the value of the 'phone_number' field.
-   * @return Employee phone number
+   * Gets the value of the 'email_id' field.
+   * @return Employee email id
    */
-  public java.lang.String getPhoneNumber() {
-    return phone_number;
+  public java.lang.String getEmailId() {
+    return email_id;
   }
 
 
 
   /**
-   * Creates a new EmployeeV1 RecordBuilder.
-   * @return A new EmployeeV1 RecordBuilder
+   * Creates a new Employee RecordBuilder.
+   * @return A new Employee RecordBuilder
    */
-  public static com.ketul.kafka.avro.schema.EmployeeV1.Builder newBuilder() {
-    return new com.ketul.kafka.avro.schema.EmployeeV1.Builder();
+  public static com.ketul.kafka.avro.schema.v2.Employee.Builder newBuilder() {
+    return new com.ketul.kafka.avro.schema.v2.Employee.Builder();
   }
 
   /**
-   * Creates a new EmployeeV1 RecordBuilder by copying an existing Builder.
+   * Creates a new Employee RecordBuilder by copying an existing Builder.
    * @param other The existing builder to copy.
-   * @return A new EmployeeV1 RecordBuilder
+   * @return A new Employee RecordBuilder
    */
-  public static com.ketul.kafka.avro.schema.EmployeeV1.Builder newBuilder(com.ketul.kafka.avro.schema.EmployeeV1.Builder other) {
+  public static com.ketul.kafka.avro.schema.v2.Employee.Builder newBuilder(com.ketul.kafka.avro.schema.v2.Employee.Builder other) {
     if (other == null) {
-      return new com.ketul.kafka.avro.schema.EmployeeV1.Builder();
+      return new com.ketul.kafka.avro.schema.v2.Employee.Builder();
     } else {
-      return new com.ketul.kafka.avro.schema.EmployeeV1.Builder(other);
+      return new com.ketul.kafka.avro.schema.v2.Employee.Builder(other);
     }
   }
 
   /**
-   * Creates a new EmployeeV1 RecordBuilder by copying an existing EmployeeV1 instance.
+   * Creates a new Employee RecordBuilder by copying an existing Employee instance.
    * @param other The existing instance to copy.
-   * @return A new EmployeeV1 RecordBuilder
+   * @return A new Employee RecordBuilder
    */
-  public static com.ketul.kafka.avro.schema.EmployeeV1.Builder newBuilder(com.ketul.kafka.avro.schema.EmployeeV1 other) {
+  public static com.ketul.kafka.avro.schema.v2.Employee.Builder newBuilder(com.ketul.kafka.avro.schema.v2.Employee other) {
     if (other == null) {
-      return new com.ketul.kafka.avro.schema.EmployeeV1.Builder();
+      return new com.ketul.kafka.avro.schema.v2.Employee.Builder();
     } else {
-      return new com.ketul.kafka.avro.schema.EmployeeV1.Builder(other);
+      return new com.ketul.kafka.avro.schema.v2.Employee.Builder(other);
     }
   }
 
   /**
-   * RecordBuilder for EmployeeV1 instances.
+   * RecordBuilder for Employee instances.
    */
   @org.apache.avro.specific.AvroGenerated
-  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<EmployeeV1>
-    implements org.apache.avro.data.RecordBuilder<EmployeeV1> {
+  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Employee>
+    implements org.apache.avro.data.RecordBuilder<Employee> {
 
     /** Employee Id */
     private java.lang.String employee_id;
@@ -268,8 +268,8 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
     private float salary;
     /** Is employee permanent ? */
     private boolean is_permanent;
-    /** Employee phone number */
-    private java.lang.String phone_number;
+    /** Employee email id */
+    private java.lang.String email_id;
 
     /** Creates a new Builder */
     private Builder() {
@@ -280,7 +280,7 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(com.ketul.kafka.avro.schema.EmployeeV1.Builder other) {
+    private Builder(com.ketul.kafka.avro.schema.v2.Employee.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.employee_id)) {
         this.employee_id = data().deepCopy(fields()[0].schema(), other.employee_id);
@@ -306,17 +306,17 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
         this.is_permanent = data().deepCopy(fields()[5].schema(), other.is_permanent);
         fieldSetFlags()[5] = other.fieldSetFlags()[5];
       }
-      if (isValidValue(fields()[6], other.phone_number)) {
-        this.phone_number = data().deepCopy(fields()[6].schema(), other.phone_number);
+      if (isValidValue(fields()[6], other.email_id)) {
+        this.email_id = data().deepCopy(fields()[6].schema(), other.email_id);
         fieldSetFlags()[6] = other.fieldSetFlags()[6];
       }
     }
 
     /**
-     * Creates a Builder by copying an existing EmployeeV1 instance
+     * Creates a Builder by copying an existing Employee instance
      * @param other The existing instance to copy.
      */
-    private Builder(com.ketul.kafka.avro.schema.EmployeeV1 other) {
+    private Builder(com.ketul.kafka.avro.schema.v2.Employee other) {
       super(SCHEMA$);
       if (isValidValue(fields()[0], other.employee_id)) {
         this.employee_id = data().deepCopy(fields()[0].schema(), other.employee_id);
@@ -342,8 +342,8 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
         this.is_permanent = data().deepCopy(fields()[5].schema(), other.is_permanent);
         fieldSetFlags()[5] = true;
       }
-      if (isValidValue(fields()[6], other.phone_number)) {
-        this.phone_number = data().deepCopy(fields()[6].schema(), other.phone_number);
+      if (isValidValue(fields()[6], other.email_id)) {
+        this.email_id = data().deepCopy(fields()[6].schema(), other.email_id);
         fieldSetFlags()[6] = true;
       }
     }
@@ -364,7 +364,7 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'employee_id'.
       * @return This builder.
       */
-    public com.ketul.kafka.avro.schema.EmployeeV1.Builder setEmployeeId(java.lang.String value) {
+    public com.ketul.kafka.avro.schema.v2.Employee.Builder setEmployeeId(java.lang.String value) {
       validate(fields()[0], value);
       this.employee_id = value;
       fieldSetFlags()[0] = true;
@@ -386,7 +386,7 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
       * Employee Id
       * @return This builder.
       */
-    public com.ketul.kafka.avro.schema.EmployeeV1.Builder clearEmployeeId() {
+    public com.ketul.kafka.avro.schema.v2.Employee.Builder clearEmployeeId() {
       employee_id = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -408,7 +408,7 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'fist_name'.
       * @return This builder.
       */
-    public com.ketul.kafka.avro.schema.EmployeeV1.Builder setFistName(java.lang.String value) {
+    public com.ketul.kafka.avro.schema.v2.Employee.Builder setFistName(java.lang.String value) {
       validate(fields()[1], value);
       this.fist_name = value;
       fieldSetFlags()[1] = true;
@@ -430,7 +430,7 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
       * First name of the employee
       * @return This builder.
       */
-    public com.ketul.kafka.avro.schema.EmployeeV1.Builder clearFistName() {
+    public com.ketul.kafka.avro.schema.v2.Employee.Builder clearFistName() {
       fist_name = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -452,7 +452,7 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'last_name'.
       * @return This builder.
       */
-    public com.ketul.kafka.avro.schema.EmployeeV1.Builder setLastName(java.lang.String value) {
+    public com.ketul.kafka.avro.schema.v2.Employee.Builder setLastName(java.lang.String value) {
       validate(fields()[2], value);
       this.last_name = value;
       fieldSetFlags()[2] = true;
@@ -474,7 +474,7 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
       * Last name of the employee
       * @return This builder.
       */
-    public com.ketul.kafka.avro.schema.EmployeeV1.Builder clearLastName() {
+    public com.ketul.kafka.avro.schema.v2.Employee.Builder clearLastName() {
       last_name = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -496,7 +496,7 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'age'.
       * @return This builder.
       */
-    public com.ketul.kafka.avro.schema.EmployeeV1.Builder setAge(int value) {
+    public com.ketul.kafka.avro.schema.v2.Employee.Builder setAge(int value) {
       validate(fields()[3], value);
       this.age = value;
       fieldSetFlags()[3] = true;
@@ -518,7 +518,7 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
       * Age of the employee
       * @return This builder.
       */
-    public com.ketul.kafka.avro.schema.EmployeeV1.Builder clearAge() {
+    public com.ketul.kafka.avro.schema.v2.Employee.Builder clearAge() {
       fieldSetFlags()[3] = false;
       return this;
     }
@@ -539,7 +539,7 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'salary'.
       * @return This builder.
       */
-    public com.ketul.kafka.avro.schema.EmployeeV1.Builder setSalary(float value) {
+    public com.ketul.kafka.avro.schema.v2.Employee.Builder setSalary(float value) {
       validate(fields()[4], value);
       this.salary = value;
       fieldSetFlags()[4] = true;
@@ -561,7 +561,7 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
       * Salary
       * @return This builder.
       */
-    public com.ketul.kafka.avro.schema.EmployeeV1.Builder clearSalary() {
+    public com.ketul.kafka.avro.schema.v2.Employee.Builder clearSalary() {
       fieldSetFlags()[4] = false;
       return this;
     }
@@ -582,7 +582,7 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'is_permanent'.
       * @return This builder.
       */
-    public com.ketul.kafka.avro.schema.EmployeeV1.Builder setIsPermanent(boolean value) {
+    public com.ketul.kafka.avro.schema.v2.Employee.Builder setIsPermanent(boolean value) {
       validate(fields()[5], value);
       this.is_permanent = value;
       fieldSetFlags()[5] = true;
@@ -604,67 +604,67 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
       * Is employee permanent ?
       * @return This builder.
       */
-    public com.ketul.kafka.avro.schema.EmployeeV1.Builder clearIsPermanent() {
+    public com.ketul.kafka.avro.schema.v2.Employee.Builder clearIsPermanent() {
       fieldSetFlags()[5] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'phone_number' field.
-      * Employee phone number
+      * Gets the value of the 'email_id' field.
+      * Employee email id
       * @return The value.
       */
-    public java.lang.String getPhoneNumber() {
-      return phone_number;
+    public java.lang.String getEmailId() {
+      return email_id;
     }
 
 
     /**
-      * Sets the value of the 'phone_number' field.
-      * Employee phone number
-      * @param value The value of 'phone_number'.
+      * Sets the value of the 'email_id' field.
+      * Employee email id
+      * @param value The value of 'email_id'.
       * @return This builder.
       */
-    public com.ketul.kafka.avro.schema.EmployeeV1.Builder setPhoneNumber(java.lang.String value) {
+    public com.ketul.kafka.avro.schema.v2.Employee.Builder setEmailId(java.lang.String value) {
       validate(fields()[6], value);
-      this.phone_number = value;
+      this.email_id = value;
       fieldSetFlags()[6] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'phone_number' field has been set.
-      * Employee phone number
-      * @return True if the 'phone_number' field has been set, false otherwise.
+      * Checks whether the 'email_id' field has been set.
+      * Employee email id
+      * @return True if the 'email_id' field has been set, false otherwise.
       */
-    public boolean hasPhoneNumber() {
+    public boolean hasEmailId() {
       return fieldSetFlags()[6];
     }
 
 
     /**
-      * Clears the value of the 'phone_number' field.
-      * Employee phone number
+      * Clears the value of the 'email_id' field.
+      * Employee email id
       * @return This builder.
       */
-    public com.ketul.kafka.avro.schema.EmployeeV1.Builder clearPhoneNumber() {
-      phone_number = null;
+    public com.ketul.kafka.avro.schema.v2.Employee.Builder clearEmailId() {
+      email_id = null;
       fieldSetFlags()[6] = false;
       return this;
     }
 
     @Override
     @SuppressWarnings("unchecked")
-    public EmployeeV1 build() {
+    public Employee build() {
       try {
-        EmployeeV1 record = new EmployeeV1();
+        Employee record = new Employee();
         record.employee_id = fieldSetFlags()[0] ? this.employee_id : (java.lang.String) defaultValue(fields()[0]);
         record.fist_name = fieldSetFlags()[1] ? this.fist_name : (java.lang.String) defaultValue(fields()[1]);
         record.last_name = fieldSetFlags()[2] ? this.last_name : (java.lang.String) defaultValue(fields()[2]);
         record.age = fieldSetFlags()[3] ? this.age : (java.lang.Integer) defaultValue(fields()[3]);
         record.salary = fieldSetFlags()[4] ? this.salary : (java.lang.Float) defaultValue(fields()[4]);
         record.is_permanent = fieldSetFlags()[5] ? this.is_permanent : (java.lang.Boolean) defaultValue(fields()[5]);
-        record.phone_number = fieldSetFlags()[6] ? this.phone_number : (java.lang.String) defaultValue(fields()[6]);
+        record.email_id = fieldSetFlags()[6] ? this.email_id : (java.lang.String) defaultValue(fields()[6]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -675,8 +675,8 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
   }
 
   @SuppressWarnings("unchecked")
-  private static final org.apache.avro.io.DatumWriter<EmployeeV1>
-    WRITER$ = (org.apache.avro.io.DatumWriter<EmployeeV1>)MODEL$.createDatumWriter(SCHEMA$);
+  private static final org.apache.avro.io.DatumWriter<Employee>
+    WRITER$ = (org.apache.avro.io.DatumWriter<Employee>)MODEL$.createDatumWriter(SCHEMA$);
 
   @Override public void writeExternal(java.io.ObjectOutput out)
     throws java.io.IOException {
@@ -684,8 +684,8 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
   }
 
   @SuppressWarnings("unchecked")
-  private static final org.apache.avro.io.DatumReader<EmployeeV1>
-    READER$ = (org.apache.avro.io.DatumReader<EmployeeV1>)MODEL$.createDatumReader(SCHEMA$);
+  private static final org.apache.avro.io.DatumReader<Employee>
+    READER$ = (org.apache.avro.io.DatumReader<Employee>)MODEL$.createDatumReader(SCHEMA$);
 
   @Override public void readExternal(java.io.ObjectInput in)
     throws java.io.IOException {
@@ -709,7 +709,7 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
 
     out.writeBoolean(this.is_permanent);
 
-    out.writeString(this.phone_number);
+    out.writeString(this.email_id);
 
   }
 
@@ -730,7 +730,7 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
 
       this.is_permanent = in.readBoolean();
 
-      this.phone_number = in.readString();
+      this.email_id = in.readString();
 
     } else {
       for (int i = 0; i < 7; i++) {
@@ -760,7 +760,7 @@ public class EmployeeV1 extends org.apache.avro.specific.SpecificRecordBase impl
           break;
 
         case 6:
-          this.phone_number = in.readString();
+          this.email_id = in.readString();
           break;
 
         default:

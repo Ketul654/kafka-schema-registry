@@ -1,7 +1,6 @@
 package com.ketul.kafka.producer;
 
-import com.ketul.kafka.avro.schema.EmployeeV1;
-import com.ketul.kafka.avro.schema.EmployeeV2;
+import com.ketul.kafka.avro.schema.v2.Employee;
 import com.ketul.kafka.utils.KafkaConstants;
 import io.confluent.kafka.serializers.KafkaAvroSerializer;
 import org.apache.kafka.clients.producer.KafkaProducer;
@@ -27,14 +26,14 @@ public class KafkaAvroProducerV2 {
         properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class.getName());
         properties.put("schema.registry.url", "http://127.0.0.1:8081");
 
-        KafkaProducer<String, EmployeeV1> kafkaProducer = new KafkaProducer(properties);
+        KafkaProducer<String, Employee> kafkaProducer = new KafkaProducer(properties);
 
         /*
          V2 is backward compatible.
          Make sure schema is configured for backward compatibility on control center.
          This will throw schema compatibility error otherwise if V1 is already registered.
          */
-        EmployeeV2 employeeV2 = EmployeeV2.newBuilder()
+        Employee employeeV2 = Employee.newBuilder()
                 .setEmployeeId("emp-2")
                 .setFistName("Ketul")
                 .setLastName("Patel")
