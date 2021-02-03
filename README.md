@@ -2,7 +2,7 @@
 
 ## About
 
-This has samples of kafka producers and consumers with schema registry.
+This has samples of kafka producers and consumers with avro schema v1.
 
 This is developed using java 8, avro 1.10.1, kafka 2.7.0, confluent 5.3.0, and docker 20.10.2 on Mac.
 
