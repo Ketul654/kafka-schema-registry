@@ -4,9 +4,9 @@
 
 This has samples of kafka producers and consumers with schema registry.
 
-This is developed using java 8 on Mac.
+This is developed using java 8, avro 1.10.1, kafka 2.7.0, confluent 5.3.0, and docker 20.10.2 on Mac.
 
-## Setup Kafka With Schema Registry
+## Setup Kafka and Schema Registry
 ### Docker
 * Install docker from ```https://www.docker.com/get-started```
 * Start docker from applications
@@ -49,7 +49,7 @@ This is developed using java 8 on Mac.
   
   ![](src/test/resources/images/schema-registry-compatibility.png)
 
-* Create new schema by clicking on New. Make sure that name of the value and key schema is <topic-name>-value <topic-name>-key
+* Create new schema by clicking on New. Make sure that name of the value and key schema is <topic-name>-value <topic-name>-key resp.
 
   ![](src/test/resources/images/new-schema.png)
  
@@ -67,4 +67,18 @@ This is developed using java 8 on Mac.
 
   ![](src/test/resources/images/topic-creation.png)   
   
-  ![](src/test/resources/images/schema-versions.png)    
+  ![](src/test/resources/images/schema-versions.png)   
+
+## How to run
+
+* Start Consumer v1 from kafka-schema-registry-v1 repository
+* Start Consumer v2 from kafka-schema-registry-v2 repository
+* Run Producer V1 to produce message with schema v1
+* Run Producer V2 to produce message with schema v2
+* Check what Consumer V1 and V2 have consumed. Consumers should not fail as schema v1 and v2 are fully compatible. 
+  
+## Schema Operations
+* Delete Schema
+  ```aidl
+    curl -X DELETE http://localhost:8081/subjects/employee-value
+  ```   

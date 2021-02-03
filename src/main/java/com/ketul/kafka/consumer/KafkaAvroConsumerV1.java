@@ -1,6 +1,6 @@
 package com.ketul.kafka.consumer;
 
-import com.ketul.kafka.avro.schema.v1.Employee;
+import com.ketul.kafka.avro.schema.Employee;
 import com.ketul.kafka.utils.KafkaConstants;
 import io.confluent.kafka.serializers.KafkaAvroDeserializer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -24,9 +24,9 @@ public class KafkaAvroConsumerV1 {
         properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, KafkaAvroDeserializer.class.getName());
         properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
-        properties.put(ConsumerConfig.GROUP_ID_CONFIG, "group-1");
-        properties.put("schema.registry.url", "http://127.0.0.1:8081");
-        properties.put("specific.avro.reader", true);
+        properties.put(ConsumerConfig.GROUP_ID_CONFIG, KafkaConstants.GROUP_1);
+        properties.put(KafkaConstants.SCHEMA_REGISTRY_URL_CONFIG, KafkaConstants.SCHEMA_REGISTRY_URL_VALUE);
+        properties.put(KafkaConstants.SPECIFIC_AVRO_READER_CONFIG, true);
 
         ArrayList<String> topics = new ArrayList<String>();
         topics.add(KafkaConstants.TOPIC_NAME);
@@ -40,8 +40,9 @@ public class KafkaAvroConsumerV1 {
                 ConsumerRecords<String, Employee> records = kafkaConsumer.poll(Duration.ofMillis(1000));
 
                 for (ConsumerRecord<String, Employee> record : records) {
+                    Employee employee = record.value();
                     LOGGER.info(String.format("Topic : %s, Partition : %s, Offset : %s, Key : %s, Value : %s",
-                            record.topic(), record.partition(), record.offset(), record.key(), record.value()));
+                            record.topic(), record.partition(), record.offset(), record.key(), employee.toString()));
                 }
             }
         } catch (Exception ex) {

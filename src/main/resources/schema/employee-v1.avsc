@@ -1,6 +1,6 @@
 {
     "type" : "record",
-    "namespace" : "com.ketul.kafka.avro.schema.v1",
+    "namespace" : "com.ketul.kafka.avro.schema",
     "name" : "Employee",
     "doc" : "This is Avro schema for Employee",
     "fields" : [
@@ -38,7 +38,8 @@
         {
              "name": "phone_number",
              "type": "string",
-             "doc": "Employee phone number"
+             "doc": "Employee phone number",
+             "default" : "1234-567-890"
         }
     ]
 }
